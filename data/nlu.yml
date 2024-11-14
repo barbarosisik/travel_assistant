@@ -1,0 +1,278 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
+- intent: request_trip
+  examples: |
+    - I want to plan a trip
+    - I want to go to [Paris](destination)
+    - I want to travel to [Rome](destination)
+    - Can you help me with my travel plans?
+    - I'd like to organize a vacation
+    - Help me find a destination
+    - Could you suggest some places to visit?
+    - I'm looking for travel recommendations
+    - I need ideas for my next holiday
+    - Plan a journey for me, please
+    - I want to go somewhere exciting
+    - Let's plan a trip together
+    - I feel like traveling
+    - Where should I go on vacation?
+    - Recommend me some travel spots
+    - I'm interested in exploring new places
+    - Can you assist me in planning a trip?
+    - Help me create a travel itinerary
+    - I need assistance with vacation planning
+    - Suggest a travel plan for me
+    - I'd like to book a trip
+    - Any ideas for a holiday destination?
+    - Can we plan a budget-friendly trip?
+    - I'm open to travel suggestions
+    - Let's discuss possible travel plans
+    - I want to visit interesting places
+    - Can you recommend attractions to see?
+    - Help me find cheap travel options
+    - I need help extending my travel itinerary
+    - What are some must-see spots?
+    - Suggest some unique travel experiences
+    - I'm looking for adventure travel ideas
+
+- intent: inform
+  examples: |
+    - From [Amsterdam](origin)
+    - On [31st of January](time)
+    - My budget is [2000 euros](amount-of-money)
+    - Traveling with [2 people](number)
+    - Interested in [nature](interests) and [culture](interests)
+    - Can you help me plan a trip to [London](destination)?
+    - I'd like to book a flight to [Tokyo](destination)
+    - Help me find flights to [New York](destination)
+    - I need travel assistance
+    - I'm planning a trip
+    - Book me a trip to [Sydney](destination)
+    - I want to travel to [Australia](destination)
+    - I'm leaving from [Netherlands](origin)
+    - My budget is [800 euros](budget)
+    - I love [nature](interests)
+    - I'll be traveling with [2](num_people) people
+    - I'm interested in [city life](interests)
+    - I prefer [beaches](interests)
+    - I want to see [skyscrapers](interests)
+    - I'm looking for [cultural experiences](interests)
+    - My travel dates are from [June 1st](date) to [June 15th](date)
+    - I have [1000 dollars](budget) to spend
+    - I'm going alone
+    - We are [a family of four](num_people)
+    - I'd like to visit [historical sites](interests)
+    - I'm curious about [local cuisine](interests)
+    - My departure city is [New York](origin)
+    - I'm thinking of going to [Japan](destination)
+    - I enjoy [mountain hiking](interests)
+    - My budget is around [500 pounds](budget)
+    - Traveling with [my partner](num_people)
+    - I'd like to travel in [December](date)
+    - I want to avoid [crowded places](constraints)
+    - I prefer [luxury accommodations](preferences)
+    - Looking for [budget-friendly](preferences) options
+    - I have [two weeks](duration) for the trip
+    - I'd like to [relax](interests) during my vacation
+    - I'm open to [any destination](destination)
+    - I want to explore [hidden gems](interests)
+    - My maximum budget is [1500 euros](budget)
+    - I'm interested in [wildlife safaris](interests)
+    - I'd like to experience the [nightlife](interests)
+    - I prefer [warm climates](preferences)
+    - I have [10 days](duration) off work
+    - I'm leaving in [three weeks](date)
+    - I don't want to spend more than [700 dollars](budget)
+    - I'm looking for [adventure sports](interests)
+    - I want to visit [multiple countries](preferences)
+    - I'm interested in [art and museums](interests)
+    - I prefer traveling by [train](transportation_mode)
+    - I'm on a [tight budget](budget)
+    - I love [snow activities](interests)
+    - I'm traveling with [friends](num_people)
+    - I'd like to include a [stopover](preferences) in [Singapore](stopover_location)
+    - I'm flexible with dates
+    - I need to be back by [July 20th](return_date)
+    - I want to [drive](transportation_mode) during my trip
+    - I'm looking for [eco-friendly](preferences) travel options
+    - I have [three weeks](duration) available
+    - I'm interested in [volunteering opportunities](interests)
+    - I'd like to [learn a new language](interests) during my travels
+    - I prefer [small towns](preferences) over big cities
+    - I'm not interested in [tourist traps](constraints)
+    - I want to [visit festivals](interests)
+    - My preferred airline is [Emirates](preferences)
+    - I want to travel during the [off-season](preferences)
+    - I'm concerned about [safety](constraints) in the destination
+    - I'd like to [backpack](preferences) across [Europe](destination)
+    - I want to stay in [hostels](accommodation_type)
+    - I'm looking for [family-friendly](preferences) destinations
+    - I enjoy [road trips](transportation_mode)
+    - I have [frequent flyer miles](preferences) to use
+    - I'm allergic to [seafood](constraints), so need meal options
+    - I prefer destinations with [English-speaking](preferences) locals
+    - I need [visa-free](constraints) travel destinations
+    - I'd like to experience [local traditions](interests)
+    - I'm open to [group tours](preferences)
+    - I want to avoid [long flights](constraints)
+    - I prefer to stay in [Airbnbs](accommodation_type)
+    - I'm interested in [photography spots](interests)
+    - I want to travel with my [pet](constraints)
+    - I'm celebrating a [honeymoon](special_occasion)
+    - I'd like to find [last-minute deals](preferences)
+    - I want to go on [31st of January](time)
+    - Let's plan for [next week](time)
+    - I will travel on [January 31](time)
+    - Book a trip on [12.12.2024](time)
+    - I'm planning to travel [today](time)
+
+- intent: ask_alternative
+  examples: |
+    - Can you suggest a cheaper option?
+    - Are there any budget-friendly alternatives?
+    - Do you have other recommendations?
+    - Any other ideas for places to stop?
+    - Can we adjust the plan to lower the cost?
+    - What are some cheaper routes?
+    - Is there a way to make this trip more affordable?
+    - Can you extend the travel plan?
+    - I want to add another destination
+    - Can we include more activities?
+    - I prefer to spend less on accommodation
+
+- intent: deny
+  examples: |
+    - No, that's not what I meant
+    - I don't like that option
+    - That's too expensive
+    - I'm not interested in that
+    - I'd rather not
+
+- intent: affirm
+  examples: |
+    - Yes, that sounds good
+    - I like that idea
+    - Exactly
+    - That's perfect
+    - Sure, let's do that
+
+- intent: thank
+  examples: |
+    - Thank you
+    - Thanks for your help
+    - Appreciate it
+    - Thanks a lot
+    
+- intent: goodbye
+  examples: |
+    - Goodbye
+    - See you later
+    - Talk to you soon
+    - Bye
+
+- regex: transportation_mode
+  examples: |
+    - (train|bus|flight|plane|car|bike|bicycle|walk|walking)
+
+- lookup: transportation_mode
+  examples: |
+    - train
+    - bus
+    - flight
+    - plane
+    - car
+    - bike
+    - bicycle
+    - walk
+    - walking
+

@@ -1,0 +1,221 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - thank
+  - deny
+  - affirm
+  - request_trip
+  - inform
+  - ask_alternative
+  - budget_inquiry
+  - bot_challenge
+  - nlu_fallback  # Added for fallback handling
+  - mood_great  # Add if intended, else remove from NLU
+
+entities:
+  - destination
+  - origin
+  - date
+  - return_date
+  - budget
+  - num_people
+  - interests
+  - constraints
+  - preferences
+  - duration
+  - transportation_mode
+  - accommodation_type
+  - special_occasion
+  - stopover_location
+  - time
+  - amount-of-money
+
+slots:
+  destination:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: destination
+        not_intent: affirm
+  origin:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: origin
+        not_intent: affirm
+  date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: date
+        not_intent: affirm
+  return_date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: return_date
+        not_intent: affirm
+  duration:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: duration
+        not_intent: affirm
+  budget:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: amount-of-money
+        not_intent: affirm
+  num_people:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: num_people
+        not_intent: affirm
+  interests:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: interests
+        not_intent: affirm
+  preferences:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        entity: preferences
+        not_intent: affirm
+  constraints:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        entity: constraints
+        not_intent: affirm
+  transportation_mode:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: transportation_mode
+        not_intent: affirm
+  accommodation_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        entity: accommodation_type
+        not_intent: affirm
+  special_occasion:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        entity: special_occasion
+        not_intent: affirm
+  stopover_location:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: stopover_location
+        not_intent: affirm
+
+forms:
+  trip_form:
+    required_slots:
+      - destination
+      - origin
+      - date
+      - return_date
+      - duration
+      - budget
+      - num_people
+      - interests
+      - preferences
+      - constraints
+      - transportation_mode
+      - accommodation_type
+      - special_occasion
+      - stopover_location
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you with your travel plans today?"
+  utter_goodbye:
+    - text: "Goodbye! Feel free to reach out if you need more assistance."
+  utter_thank:
+    - text: "You're welcome!"
+  utter_ask_origin:
+    - text: "Where are you traveling from?"
+  utter_ask_destination:
+    - text: "Where would you like to travel?"
+  utter_ask_date:
+    - text: "When are you planning to travel?"
+  utter_ask_return_date:
+    - text: "When will you be returning?"
+  utter_ask_duration:
+    - text: "How long is your trip?"
+  utter_ask_budget:
+    - text: "What is your budget for this trip?"
+  utter_ask_num_people:
+    - text: "How many people are traveling?"
+  utter_ask_interests:
+    - text: "What are your interests during travel? (e.g., nature, culture, adventure)"
+  utter_ask_preferences:
+    - text: "Do you have any preferences for your trip?"
+  utter_ask_constraints:
+    - text: "Are there any constraints or special considerations?"
+  utter_ask_transportation_mode:
+    - text: "Do you have a preferred mode of transportation?"
+  utter_ask_accommodation_type:
+    - text: "What type of accommodation do you prefer?"
+  utter_ask_special_occasion:
+    - text: "Are you celebrating any special occasion?"
+  utter_ask_stopover_location:
+    - text: "Would you like to include any stopovers?"
+  utter_trip_confirmation:
+    - text: |
+        Great! Let me summarize your trip details:
+        - From: {origin}
+        - To: {destination}
+        - Date: {date}
+        - Return Date: {return_date}
+        - Duration: {duration}
+        - Budget: {budget}
+        - Number of People: {num_people}
+        - Interests: {interests}
+        - Preferences: {preferences}
+        - Constraints: {constraints}
+        - Transportation Mode: {transportation_mode}
+        - Accommodation Type: {accommodation_type}
+        - Special Occasion: {special_occasion}
+        - Stopover Location: {stopover_location}
+
+        Shall I proceed with these details?
+  utter_no_trip_info:
+    - text: "I need some more information to help you plan your trip."
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+  utter_default:
+    - text: "I'm sorry, I didn't understand that. Could you please rephrase?"
+
+actions:
+  - action_submit_trip_form
+  - validate_trip_form
+  - action_default_fallback  # Added for fallback handling
+
+session_config:
+  session_expiration_time: 60  # in minutes
+  carry_over_slots_to_new_session: true

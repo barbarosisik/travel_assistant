@@ -1,0 +1,19 @@
+version: "3.1"
+
+stories:
+
+- story: user provides trip information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_trip
+  - action: trip_form
+  - active_loop: trip_form
+  - intent: inform
+    entities:
+      - destination: "Australia"
+      - date: "2024-12-01"
+      - budget: "1500 dollars"
+  - action: trip_form
+  - active_loop: null
+  - action: action_submit_trip_form
