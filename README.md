@@ -11,3 +11,12 @@ Assuming, everything downloaded in the same structure.
 4. Open a new terminal and go to the app directory.
 5. Run "rasa shell".
 6. And ask for travel assistance
+
+
+### Step by Step guide for the Travel Assistant
+1. request trip
+2. where from
+3. where to
+4. when traveling
+5. when coming back 
+6. what you like
